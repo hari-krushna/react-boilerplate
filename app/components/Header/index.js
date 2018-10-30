@@ -13,7 +13,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <A href="https://twitter.com/mxstbr">
+        <A>
           <Img src={Banner} alt="react-boilerplate - Logo" />
         </A>
         <NavBar>
@@ -22,6 +22,9 @@ class Header extends React.Component {
           </HeaderLink>
           <HeaderLink to="/features">
             <FormattedMessage {...messages.features} />
+          </HeaderLink>
+          <HeaderLink to="/documentation">
+            <FormattedMessage {...messages.documentation} />
           </HeaderLink>
         </NavBar>
       </div>

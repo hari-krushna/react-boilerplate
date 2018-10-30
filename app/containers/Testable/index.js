@@ -2,31 +2,38 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { fetchUsersRequest } from './actions';
+import { Helmet } from 'react-helmet';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import reducer from './reducer';
-import saga from './saga';
-
 import {
   makeSelectUsers,
   makeSelectLoading,
   makeSelectError,
 } from 'containers/Testable/selectors';
+import { fetchUsersRequest } from './actions';
+import reducer from './reducer';
+import saga from './saga';
 
 class Testable extends Component {
   componentDidMount() {
     this.props.dispatch(fetchUsersRequest());
   }
+
   render() {
     const { users } = this.props;
     return (
-      <div className="outer" >
+      <div className="outer">
+        <Helmet>
+          <title>Test Page</title>
+          <meta name="description" content="Test Page" />
+        </Helmet>
         <ul>
           {Array.isArray(users) && users.length !== 0
-            ? users.map(user => <li key={user.id}>
+            ? users.map(user => (
+              <li key={user.id}>
                 <div>{user.name}</div>
-                </li>)
+              </li>
+            ))
             : null}
         </ul>
       </div>

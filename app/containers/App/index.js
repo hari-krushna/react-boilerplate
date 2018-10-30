@@ -14,6 +14,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import TestablePage from 'containers/Testable';
+import DocumentationPage from 'containers/Documentation';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -33,16 +34,20 @@ export default function App() {
   return (
     <AppWrapper>
       <Helmet
-        titleTemplate="ePaperRoad"
-        defaultTitle="ePaperRoad"
+        titleTemplate="React Redux Saga Boilerplate"
+        defaultTitle="React Redux Saga Boilerplate"
       >
-        <meta name="description" content="ePaperRoad Description" />
+        <meta
+          name="description"
+          content="React Redux Saga Boilerplate Description"
+        />
       </Helmet>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
         <Route path="/test" component={TestablePage} />
+        <Route path="/documentation" component={DocumentationPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
